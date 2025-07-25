@@ -1,0 +1,6 @@
+{
+  "projectType": "python",
+  "docsDir": "docs/",
+  "mainFile": "main.py",
+  "description": "財務モデリングアプリケーションのプロジェクト設定ファイル"
+} 
