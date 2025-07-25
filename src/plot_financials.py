@@ -170,8 +170,8 @@ def compare_companies():
             divide = 1_000_000
         if col+'_A' in merged.columns and col+'_B' in merged.columns:
             plt.figure()
-            plt.plot(merged['年度'], merged[col+'_A']/divide, marker='o', label='CompanyA')
-            plt.plot(merged['年度'], merged[col+'_B']/divide, marker='s', label='CompanyB')
+            plt.plot(merged['年度'], merged[col+'_A']/divide, marker='o', label='信和')
+            plt.plot(merged['年度'], merged[col+'_B']/divide, marker='s', label='中央ビルト工業')
             plt.title(f'{col} 比較')
             plt.xlabel('年度')
             plt.ylabel(ylabel)
@@ -184,7 +184,7 @@ def compare_companies():
             fpath = os.path.join('output/compare', fname)
             plt.savefig(fpath)
             plt.close()
-    print('CompanyAとCompanyBの全共通指標の比較グラフをoutput/compare/に出力しました')
+    print('CompanyA（信和）とCompanyB（中央ビルト工業）の全共通指標の比較グラフをoutput/compare/に出力しました')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

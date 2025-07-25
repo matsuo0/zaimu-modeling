@@ -1,6 +1,7 @@
 # 財務モデリングアプリケーション
 
-このリポジトリは、会社Aが会社BをM&A（合併・買収）する際に必要な財務モデリングを支援するPythonアプリケーションのプロジェクトです。
+このリポジトリは、信和株式会社が中央ビルト工業をM&A（合併・買収）する際に
+必要な財務モデリングを支援するPythonアプリケーションのプロジェクトです。
 特に、DCF法による企業価値評価、PMI（統合後）シナリオ分析、買収価格算定に重点を置いています。
 
 ## ドキュメント
@@ -18,56 +19,22 @@
 
 ---
 
-## 必要なPythonライブラリ
-
-CompanyAの財務データ可視化スクリプト（src/plot_financials.py）を実行するには、以下のPythonライブラリが必要です。
-
-- pandas
-- matplotlib
-
-インストール例：
-
-```
-pip install pandas matplotlib
-```
-
 ## 主なPythonスクリプト
 
 - `src/plot_financials.py`
-  CompanyAの財務データ（2018〜2025年）を年度ごとに集計・グラフ化するスクリプトです。
+  財務データ（2018〜2025年）を年度ごとに集計・グラフ化するスクリプトです。
 
 ## 会社ごとの出力例
 
-- 会社A・会社BそれぞれのEDINET財務データ（CSV）を取得・格納後、
+- それぞれのEDINET財務データ（CSV）を取得・格納後、
 - Pythonスクリプトで各社ごとに
   - 財務データのグラフ画像（PNG等）
   - 分析レポート（Markdown）
   を自動生成します。
 
-### 出力例
-- output/companyA_report.md
-- output/companyA_graph_売上高推移.png
-- output/companyA_graph_営業利益推移.png
-- output/companyA_graph_純利益推移.png
-- output/companyA_graph_総資産推移.png
-- output/companyA_graph_自己資本比率.png
-- output/companyA_graph_ROE.png
-- output/companyA_graph_ROA.png
-- ...（できるだけ多くの財務指標グラフを出力）
-
-- output/companyB_report.md
-- output/companyB_graph_売上高推移.png
-- output/companyB_graph_営業利益推移.png
-- output/companyB_graph_純利益推移.png
-- output/companyB_graph_総資産推移.png
-- output/companyB_graph_自己資本比率.png
-- output/companyB_graph_ROE.png
-- output/companyB_graph_ROA.png
-- ...（同様に多様なグラフを出力）
-
 ## 機能・特徴（2024年7月時点）
 
-- CompanyA・CompanyBそれぞれのEDINET財務データ（CSV）から主要指標を自動抽出・自動計算
+- それぞれのEDINET財務データ（CSV）から主要指標を自動抽出・自動計算
 - 自己資本比率は「自己資本÷総資産×100」で自動計算（EDINET値がなくても算出）
 - 売上高、営業利益、経常利益、純利益、総資産、自己資本、自己資本比率、ROE、ROA、EBITDA、従業員数などM&Aで重要な指標を網羅
 - 2社の全共通指標を自動で比較グラフ化（output/compare/配下にPNG出力）
@@ -116,42 +83,7 @@ pip install pandas matplotlib
 
 ---
 
-## 実行手順
-
-1. 仮想環境の作成・有効化
-
-```sh
-python3 -m venv venv
-source venv/bin/activate
-```
-
-2. 必要なライブラリのインストール
-
-```sh
-pip install pandas matplotlib
-```
-
-3. スクリプトの実行（会社Aの例）
-
-```sh
-python src/plot_financials.py --company companyA
-```
-
-会社Bの場合は
-
-```sh
-python src/plot_financials.py --company companyB
-```
-
-4. 出力結果の確認
-
-- `output/companyA/` または `output/companyB/` フォルダ内に、グラフ画像（PNG）とMarkdownレポート（.md）が生成されます。
-
-## CompanyA, CompanyBの財務モデリングに基づくM&A考察（AI生成）
-
----
-
-### CompanyA（信和株式会社 3447）
+### （信和株式会社 3447）
 
 #### 楽観シナリオ
 - 売上・利益ともに今後も安定成長が継続し、PMI後のシナジー効果で収益性がさらに向上。
@@ -170,7 +102,7 @@ python src/plot_financials.py --company companyB
 
 ---
 
-### CompanyB（中央ビルト工業 1971）
+### （中央ビルト工業 1971）
 
 #### 楽観シナリオ
 - M&Aによる経営資源の再配置で利益率が改善。
@@ -354,8 +286,4 @@ python src/plot_financials.py --company companyB
 - **メリット・留意点**
   - 少額の自己資本で高いリターンが狙えるが、CF悪化時のリスクも大きい。
 
-### AIによる総合コメント
-> マルチプル法は市場実勢や投資家の期待を反映しやすく、DCF法と併用することでバリュエーションの妥当性が高まります。LBOモデルは資本効率を最大化できる一方、財務リスク管理が重要です。複数手法を組み合わせ、シナリオごとに最適な意思決定を行うことが、より良いM&A財務モデリングの鍵となります。
-
 ---
-
