@@ -62,6 +62,22 @@ pip install pandas matplotlib
 - output/companyB_graph_ROA.png
 - ...（同様に多様なグラフを出力）
 
+## 機能・特徴（2024年7月時点）
+
+- CompanyA・CompanyBそれぞれのEDINET財務データ（CSV）から主要指標を自動抽出・自動計算
+- 自己資本比率は「自己資本÷総資産×100」で自動計算（EDINET値がなくても算出）
+- 売上高、営業利益、経常利益、純利益、総資産、自己資本、自己資本比率、ROE、ROA、EBITDA、従業員数などM&Aで重要な指標を網羅
+- 2社の全共通指標を自動で比較グラフ化（output/compare/配下にPNG出力）
+- 指標や要素IDはEDINET CSVの内容に応じて柔軟に拡張可能
+- 欠損値や型変換も自動で処理
+
+### 出力例
+- output/companyA/summary.csv, output/companyB/summary.csv … 各社の年度別主要指標一覧
+- output/companyA/（PNG, Markdown） … 各社ごとのグラフ・レポート
+- output/compare/（PNG） … 2社の全共通指標の比較グラフ
+
+---
+
 ## 実行手順
 
 1. 仮想環境の作成・有効化
